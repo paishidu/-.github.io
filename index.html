@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -148,7 +149,8 @@
         <ul id="animeList">
             <!-- 动画链接将由 JavaScript 动态生成 -->
         </ul>
-        <a href="javascript:void(0);" class="button" onclick="toggleLinks()">立即阅讀</p>
+        <a href="javascript:void(0);" class="button" onclick="toggleLinks()">立即阅读</a>
+        
         <h2>推荐小说</h2>
         <div class="novels">
             <div class="novel">
@@ -164,7 +166,7 @@
                 <a href="https://czbooks.net/n/cp627ad" target="_blank">阅读更多</a>
             </div>
             <div class="novel">
-                <p><strong>永夜星河</strong> </p>
+                <p><strong>永夜星河</strong></p>
                 <a href="https://czbooks.net/n/cpgja8p" target="_blank">阅读更多</a>
             </div>
         </div>
@@ -181,7 +183,24 @@
     </div>
 
     <script>
-        
+        let linksVisible = false;
+        let userScore = 0;
+        const scoreKey = 'userScore'; // Local storage key for score
+
+        // Load score from local storage
+        function loadScore() {
+            if (typeof(Storage) !== "undefined") {
+                userScore = parseInt(localStorage.getItem(scoreKey), 10) || 0;
+                document.getElementById('score').textContent = `您的积分：${userScore}`;
+            }
+        }
+
+        // Save score to local storage
+        function saveScore() {
+            if (typeof(Storage) !== "undefined") {
+                localStorage.setItem(scoreKey, userScore.toString());
+            }
+        }
 
         // 小说网站数据
         const novelSites = [
@@ -228,9 +247,6 @@ displaySites(novelSites, 'novelList');
         }
 
         
-
-        // Initialize score on page load
-        loadScore();
     </script>
 </body>
 </html>
