@@ -181,24 +181,7 @@
     </div>
 
     <script>
-        let linksVisible = false;
-        let userScore = 0;
-        const scoreKey = 'userScore'; // Local storage key for score
-
-        // Load score from local storage
-        function loadScore() {
-            if (typeof(Storage) !== "undefined") {
-                userScore = parseInt(localStorage.getItem(scoreKey), 10) || 0;
-                document.getElementById('score').textContent = `您的积分：${userScore}`;
-            }
-        }
-
-        // Save score to local storage
-        function saveScore() {
-            if (typeof(Storage) !== "undefined") {
-                localStorage.setItem(scoreKey, userScore.toString());
-            }
-        }
+        
 
         // 小说网站数据
         const novelSites = [
@@ -244,11 +227,7 @@ displaySites(novelSites, 'novelList');
             });
         }
 
-        function signUp() {
-            userScore += 1; // 每次签到增加1分
-            document.getElementById('score').textContent = `您的积分：${userScore}`;
-            saveScore();
-        }
+        
 
         // Initialize score on page load
         loadScore();
