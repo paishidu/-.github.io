@@ -215,38 +215,9 @@
 
         // 动画网站数据
         const animeSites = [
-            { name: "Bilibili", url: "https://www.bilibili.com" },
-            { name: "腾讯视频", url: "https://v.qq.com" },
-            { name: "优酷视频", url: "https://www.youku.com" }
-        ];
-
-        function toggleLinks() {
-            const novelList = document.getElementById('novelList');
-            const animeList = document.getElementById('animeList');
-            if (linksVisible) {
-                novelList.innerHTML = '';
-                animeList.innerHTML = '';
-            } else {
-displaySites(novelSites, 'novelList');
-                displaySites(animeSites, 'animeList');
-            }
-            linksVisible = !linksVisible;
-        }
-
-        function displaySites(siteList, elementId) {
-            const listElement = document.getElementById(elementId);
-            siteList.forEach(site => {
-                const listItem = document.createElement('li');
-                const link = document.createElement('a');
-                link.href = site.url;
-                link.target = '_blank';
-                link.textContent = site.name;
-                listItem.appendChild(link);
-                listElement.appendChild(listItem);
-            });
-        }
-
-        
-    </script>
-</body>
-</html>
+            
+"none";
+                                                                          }
+                                                                      </script>
+                                                                  </body>
+                                                                  </html>
