@@ -215,8 +215,69 @@
 
         // 动画网站数据
         const animeSites = [
-            
-"none";
+                                                                                                                          }
+              { name: "櫻花動漫", url: " https://www.qutaoge.com/ " },
+                        { name: "新番動漫", url: "  https://www.xinfan.cc/ " },
+                        { name: "优酷视频", url: "https://www.youku.com" }
+                    ];
+
+                    //
+        模拟的API响应数据
+                    const apiResponse = {
+                        movies: [
+                            { name: "酷移動影院", url: " https://ku10086.com/  " },
+                            { name: "量子資源", url: " https://lzizy1.com/ " },
+                            { name: "酷亞影院", url: "https://kuyatv.net/ " },
+                            { name: "三米影視", url: "  https://www.hnbgjs.com/ " }
+                        ]
+                    };
+
+                    // 动态展示网站链接
+                    function displaySites(siteList, elementId) {
+                        const listElement = document.getElementById(elementId);
+                        listElement.innerHTML = '';
+                        siteList.forEach(site => {
+                            const li = document.createElement('li');
+                            const a = document.createElement('a');
+                            a.href = site.url;
+                            a.target = "_blank";
+                            a.textContent = site.name;
+                            li.appendChild(a);
+                            listElement.appendChild(li);
+                        });
+                    }
+
+                    // 切换显示小说、动画和电影链接
+                    function toggleLinks() {
+                        const novelList = document.getElementById('novelList');
+                        const animeList = document.getElementById('animeList');
+                                                                              const movieList = document.getElementById('movieList');
+
+                                                                              // 如果链接已经显示，则隐藏它们；否则显示
+                                                                              if (novelList.style.display === "none") {
+                                                                                  displaySites(novelSites, 'novelList');
+                                                                                  displaySites(animeSites, 'animeList');
+                                                                                  displaySites(apiResponse.movies, 'movieList');
+                                                                                  novelList.style.display = "block";
+                                                                                  animeList.style.display = "block";
+                                                                                  movieList.style.display = "block";
+                                                                              } else {
+                                                                                  novelList.style.display = "none";
+                                                                                  animeList.style.display = "none";
+                                                                                  movieList.style.display = "none";
+                                                                              }
+                                                                          }
+
+                                                                          // 切换显示隐私政策
+                                                                          function togglePrivacyPolicy() {
+                                                                              const privacyPolicyContainer = document.getElementById('privacyPolicyContainer');
+                                                                              privacyPolicyContainer.style.display = privacyPolicyContainer.style.display === "none" ? "block" : "none";
+                                                                          }
+
+                                                                          // 切换显示服务条款
+                                                                          function toggleTermsCondition() {
+                                                                              const termsConditionContainer = document.getElementById('termsConditionContainer');
+                                                                              termsConditionContainer.style.display = termsConditionContainer.style.display === "none" ? "block" : "none";
                                                                           }
                                                                       </script>
                                                                   </body>
